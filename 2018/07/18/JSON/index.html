@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="Liu Yao"><link rel="alternative" href="/atom.xml" title="I am yao" type="application/atom+xml"><link rel="icon" href="/favicon.png"><title>JSON - I am yao</title><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css"><!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--><script src="/js/jquery-3.1.1.min.js"></script><script src="/js/fancybox/jquery.fancybox.min.js"></script></head><body style="opacity:0"><header class="head"><h1 class="head-title u-fl"><a href="/">I am yao</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a class="head-nav__link" href="/archives">カタログ/（目录）</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"> <time class="post__time" datetime="2018-07-18T11:39:38.000Z">July 18, 2018</time><h1 class="post__title"><a href="/2018/07/18/JSON/">JSON</a></h1><div class="post__main echo"><p>##JSON<br>    JSON是随Ajax出现而诞生的一种传输数据的格式（以对象为样板，本质上就是对象，但用途有区别，对象是为本地所使用，而JSON是用来传输的）。JSON数据实际上就是一段原生的JavaScript代码，因此很容易阅读或编写，同时也易于机器解析和生成，只要熟悉JavaScript基本语法，基本可以很轻松地读写JSON数据。</p>
+<p>###JSON结构<br>JSON结构可以由下面3种类型的数据组成。</p>
+<blockquote>
+<ul>
+<li>值：表示字符串、数值、布尔值、对象、数组和null，但不支持JavaScript和undefined。</li>
+<li>对象：表示一组无序键/值对。每个键/值对中的值可以是简单的值，也可以是复杂类型的值。</li>
+<li>数组：表示一组有序的值列表，可以通过数字索引访问其中的值。数组的值也可以是任意类型。</li>
+</ul>
+</blockquote>
+<pre><code>同时JSON可以由无数个对象、数组嵌套组合而成，构成一个复杂的数据结构。但是JSON仅是一种表示结构化数据的格式，不支持变量、函数或类型实例，与JavaScript的数据语法相同，但仅是JavaScript的一个子集。
+
+JSON对象与JavaScript对象直接量结构相似但稍微有些不同。下面是一个JavaScript中的对象直接量。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var book = &#123;</span><br><span class="line">    name : &quot;yao&quot;,</span><br><span class="line">    age : &quot;18&quot;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre><code>以上就是在JavaScript中创建对象直接量的标准方式。但在JSON中，对象要求给属性名加引号，如下：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;name&quot; : &quot;yao&quot;,</span><br><span class="line">&quot;age&quot; : &quot;18&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>与JavaScript的对象直接量相比，JSON对象没有声明变量，因为在JSON中没有变量的概念。另外，没有末尾的分号，因为这不是JavaScript语句，所以不需要分号。
+不过注意。JSON对象的属性必须加双引号，这在JSON中是必需的。属性的值可以是简单值，也可以是复杂类型值，因此可以向下面这样在对象中嵌入对象。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;name&quot; : &quot;yao&quot;,</span><br><span class="line">&quot;book&quot; : &#123;</span><br><span class="line">        &quot;name&quot; : [&#123;&quot;lang&quot; : &quot;cn&quot;&#125;,&quot;从你的全世界路过&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>上面的代码在顶级对象中嵌入了&quot;book&quot;信息。虽然有两个&quot;name&quot;属性，但由于他们分别属于不同的对象，因此这样是完全没有问题的。不过，同一个对象中绝对不应该出现两个相同的属性名
+
+###解析JSON
+ECMAScript5提供了一个全局JSON独享，用来序列化和反序列化对象为JSON格式。
+JSON.parse();   // String --&gt; json
+JSON.stringifu();   //json --&gt; String
+</code></pre></div></header></article><div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC8zNzg4Mi8xNDQxMg=="><script>(function(d, s) {var j, e = d.getElementsByTagName(s)[0];if (typeof LivereTower === 'function') { return; } j = d.createElement(s);j.src = 'https://cdn-city.livere.com/js/embed.dist.js';j.async = true;e.parentNode.insertBefore(j, e);})(document, 'script');</script></div></main><footer class="foot"><div class="foot-copy">&copy; 2017-2018 Liu Yao</div></footer><script src="/js/scroller.js"></script><script src="/js/main.js"></script></body></html>
